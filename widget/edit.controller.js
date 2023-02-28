@@ -27,17 +27,16 @@
           });
           $scope.cancel = cancel;
           $scope.save = save;
+          $scope.customResourceReset = customResourceReset;
           $scope.SORT_ORDER = SORT_ORDER;
-            
-          $scope.$watch("config.customResource", function(newValue, oldValue) {
-            if (oldValue == newValue) {
-              return;
-            }
-            if (!$scope.moduleFields[newValue]) {
-              populateFieldLists(newValue);
+
+          function customResourceReset() {
+            let newResource = $scope.customResource;
+            if (!$scope.moduleFields[newResource]) {
+              populateFieldLists(newResource);
             }
             $scope.customSort = {};
-          })
+          }
   
           function populateFieldLists(resource) {
             let crEntity = new Entity(resource);

@@ -19,7 +19,7 @@
       <!-- Data Source -->
       <div class="form-group" data-ng-class="{ 'has-error':  editWidgetForm.customResource.$invalid && editWidgetForm.customResource.$touched }" data-ng-if="modules">
         <label for="customResource" class="control-label">Data Source<span class="text-danger">*</span></label>
-        <select name="customResource" id="customResource" class="form-control" data-ng-options="module.type as module.name for module in modules" data-ng-model="config.customResource" required>
+        <select name="customResource" id="customResource" class="form-control" data-ng-options="module.type as module.name for module in modules" data-ng-model="config.customResource" data-ng-change="customResourceReset()" required>
         <option value="">Select an Option</option>
         </select>
         <div data-cs-messages="editWidgetForm.customResource"></div>
