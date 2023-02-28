@@ -4,9 +4,9 @@
         .module('cybersponse')
         .controller('editC3Charts100Ctrl', editC3Charts100Ctrl);
 
-    editC3Charts100Ctrl.$inject = ['$scope', '$uibModalInstance', 'config', 'appModulesService', 'Entity', 'SORT_ORDER'];
+    editC3Charts100Ctrl.$inject = ['$scope', '$uibModalInstance', 'config', 'appModulesService', 'Entity', 'SORT_ORDER', 'CommonUtils'];
 
-    function editC3Charts100Ctrl($scope, $uibModalInstance, config, appModulesService, Entity, SORT_ORDER) {
+    function editC3Charts100Ctrl($scope, $uibModalInstance, config, appModulesService, Entity, SORT_ORDER, CommonUtils) {
         $scope.config = config;
         $scope.config.customFilters = $scope.config.customFilters || {'limit':1, 'sort': []};
         if ($scope.config.customFilters.sort.length > 0) {
@@ -66,21 +66,11 @@
   
               // Before saving we need to generate a pseudo-uuid value. There's not a good way to get a true uuid in angularjs
               if (! $scope.config.correlationValue) {
-                var uniqueValue = _generate_pseudo_uuid();
+                var uniqueValue = CommonUtils.generateUUID();
                 $scope.config['correlationValue'] = uniqueValue;
               }
               $scope.config.customFilters.sort = [$scope.customSort];
               $uibModalInstance.close($scope.config);
-          }
-  
-          function _generate_pseudo_uuid() {
-            var d = new Date().getTime();
-            var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-              var r = (d + Math.random()*16)%16 | 0;
-              d = Math.floor(d/16);
-              return (c=='x' ? r : (r&0x3|0x8)).toString(16);
-            });
-            return uuid;
-          }  
+          } 
       }
 })();
