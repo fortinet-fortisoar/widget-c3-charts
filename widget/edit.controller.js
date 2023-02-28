@@ -31,7 +31,7 @@
           $scope.SORT_ORDER = SORT_ORDER;
 
           function customResourceReset() {
-            let newResource = $scope.customResource;
+            let newResource = $scope.config.customResource;
             if (!$scope.moduleFields[newResource]) {
               populateFieldLists(newResource);
             }
