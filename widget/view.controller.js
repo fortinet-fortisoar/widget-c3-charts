@@ -28,7 +28,10 @@
                     moduleChartData.bindto = "#c3Chart-"+config.correlationValue;
 
                     $timeout(function() {
-                        c3.generate(moduleChartData);
+                        if ($scope.chart) {
+                            $scope.chart.destroy();
+                        }
+                        $scope.chart = c3.generate(moduleChartData);
                         $scope.noData=false;
                         $scope.processing=false;
                         },
@@ -38,6 +41,12 @@
             });
         }
         
+        $scope.$on("$destroy", function() {
+            if($scope.chart) {
+                $scope.chart.destroy();
+            }
+        })
+
         init();
     }
 })();
