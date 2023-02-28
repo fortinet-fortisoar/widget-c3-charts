@@ -13,10 +13,6 @@
         $scope.errMsg = "No records matching the specified query exist.";
 
         function init() {
-            var dataFormat = {
-                bindto: "#c3Chart-"+config.correlationValue
-            };
-
             $resource(API.QUERY + $scope.config.customResource + '?$limit=1').save($scope.config.customFilters).$promise.then(function(data) {
                 if (data['hydra:member'].length == 0) {
                     $scope.noData=true;
