@@ -12,7 +12,7 @@
 
 **Before Configuring the C3 Charts Widget**
 
-The C3 Charts widget required the use of a JSON field in a module to hold the data which will be rendered in the resulting chart. For simplicity's sake, a dedicated custom module and field can be used for this. The steps to set up this module are as follows:
+The C3 Charts widget requires the use of a JSON field in a module to hold the data which will be rendered in the resulting chart. For simplicity's sake, a dedicated custom module and field can be used for this. The steps to set up this module are as follows:
 
 1. Navigate to FortiSOAR's Settings menu
 2. Click on "Modules" in the system settings menu to access the module editor. By default the "Create New Module" option will be selected.
