@@ -8,15 +8,6 @@
 3. Click the `C3 Charts` solution pack card.
 4. Click **Install** on the bottom to begin installation.
 
-## Prerequisites
-
-The `C3 Charts` solution pack depends on the following solution packs that are installed automatically &ndash; if not already installed.
-
-| **Solution Pack Name** | **Purpose**   |
-| :--------------------- | :--------------------------------------- |
-|    |    |
-|    |    |
-
 # Configuration
 
 **Before Configuring the C3 Charts Widget**
