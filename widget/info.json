@@ -3,6 +3,7 @@
     "title": "C3 Charts",
     "subTitle": "Render your own custom chart data",
     "version": "1.0.0",
+    "published_date": "1678963973",
     "metadata": {
         "description": "Renders custom charts from C3 compatible JSON content in Module fields.",
         "pages": [
