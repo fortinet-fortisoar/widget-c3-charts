@@ -7,11 +7,9 @@
 
 # Overview
 
-The C3 Charts widget provides the capability to populate reports and dashboards with charts which take full advantage of the C3 Javscript Library's flexibility. Once you have created a custom Playbook to gather the data you wish to chart, and formatted it appropriately, simply point this widget to the Module, Record, and Field storing that data and the chart will be rendered appropriately.
+The C3 Charts widget helps populate reports and dashboards with charts by taking full advantage of the C3 Javascript Library's flexibility. Once you have created a custom playbook to gather the data and formatted it appropriately, simply point this widget to the module, record, and field storing that data and the chart is rendered appropriately.
 
 # Next Steps
 
-Use absolute links
-
-| [Installation](docs/setup.md#installation) | [Configuration](docs/setup.md#configuration) | [Usage](docs/usage.md) | [Contents](docs/contents.md) |
-|--------------------------------------------|----------------------------------------------|------------------------|------------------------------|
+| [Installation](docs/setup.md#installation) | [Configuration](docs/setup.md#configuration) | [Usage](docs/usage.md) |
+|--------------------------------------------|----------------------------------------------|------------------------|
