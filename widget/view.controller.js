@@ -1,12 +1,16 @@
+/* Copyright start
+  MIT License
+  Copyright (c) 2025 Fortinet Inc
+  Copyright end */
 'use strict';
 (function () {
     angular
         .module('cybersponse')
-        .controller('c3Charts100Ctrl', c3Charts100Ctrl);
+        .controller('c3Charts110Ctrl', c3Charts110Ctrl);
 
-    c3Charts100Ctrl.$inject = ['$scope', '$timeout', '$resource', 'API', 'config'];
+    c3Charts110Ctrl.$inject = ['$scope', '$timeout', '$resource', 'API', 'config'];
 
-    function c3Charts100Ctrl($scope, $timeout, $resource, API, config) {
+    function c3Charts110Ctrl($scope, $timeout, $resource, API, config) {
         $scope.processing=true;
         $scope.config = config;
         $scope.init = init;
@@ -20,19 +24,24 @@
                 }
                 else {
                     let moduleChartData = data['hydra:member'][0][$scope.config.customDataField];
-                    moduleChartData.bindto = "#c3Chart-"+config.correlationValue;
+                    if(moduleChartData) {
+                        moduleChartData.bindto = "#c3Chart-"+config.correlationValue;
+                    }
 
                     $timeout(function() {
                         if ($scope.chart) {
                             $scope.chart.destroy();
                         }
-                        $scope.chart = c3.generate(moduleChartData);
-                        $scope.noData=false;
-                        $scope.processing=false;
-                        },
-                    0,
-                    false)
+                        if(moduleChartData) {
+                            $scope.chart = c3.generate(moduleChartData);
+                            $scope.noData=false;
+                        }else {
+                            $scope.noData=true;
+                        }
+                    },0,false);
                 }
+            }).finally(function() {
+                $scope.processing= false;
             });
         }
         
