@@ -1,3 +1,7 @@
+<!-- Copyright start
+  MIT License
+  Copyright (c) 2025 Fortinet Inc
+  Copyright end -->
 <form data-ng-submit="save()" class="noMargin" name="editWidgetForm" data-ng-class="{'state-wait': processing }"
     novalidate>
     <div class="modal-header">
@@ -37,7 +41,7 @@
       <!-- Query section to replace record id selection below -->
       <div class="form-group" data-ng-hide="!config.customResource && moduleFieldsArrays[config.customResource].length > 0" data-ng-class="{ 'has-error': editWidgetForm.customFilter.$invalid && editWidgetForm.customFilters.$touched }">
         <!-- Filters -->
-        <label for="customFilters" class="control-label">Record Selection Filter</label>
+        <label for="customFilters" class="control-label">Record Selection Filter1</label>
         <div data-cs-conditional data-ng-if="moduleFieldsArrays[config.customResource].length > 0" data-fields="moduleFields[config.customResource]" data-mode="'queryFilters'" data-ng-model="config.customFilters"
         data-parent-form="editWidgetForm" data-enable-expression="(page==='dashboard' || page==='reporting')" data-reset-field="config.customResource" data-show-uuid="true" data-form-name="'editWidgetForm'"></div>
         <div data-cs-messages="editWidgetForm.customFilters"></div>
@@ -47,7 +51,7 @@
         <div class="row">
           <div class="pull-left col-lg-6 col-md-4 col-sm-5">
             <div class="form-group margin-bottom-0" data-ng-class="{'has-error': editWidgetForm.customSort.$touched && !editWidgetForm.customSort.$valid }">
-              <select name="customSort" class="form-control" ng-model="customSort.field" required data-ng-options="field.name as field.title for field in moduleFieldsArrays[config.customResource] | orderBy: 'title'" data-cs-focus>
+              <select name="customSort" class="form-control" ng-model="config.sortField" required data-ng-options="field.name as field.title for field in moduleFieldsArrays[config.customResource] | orderBy: 'title'" data-cs-focus>
                 <option value="" disabled selected>Select</option>
               </select>
               <div data-cs-messages="editWidgetForm.customSort"></div>
@@ -56,7 +60,7 @@
           <div class="pull-right col-lg-6 col-md-8 col-sm-7 padding-right-0">
             <div class="radio margin-top-12">
               <label class="checkbox-inline" data-ng-repeat="order in SORT_ORDER">
-                <input type="radio" data-ng-model="customSort.direction" data-ng-value="order.value"/>&nbsp;{{order.label}}&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="radio" data-ng-model="config.sortDirection" data-ng-value="order.value"/>&nbsp;{{order.label}}&nbsp;&nbsp;&nbsp;&nbsp;
               </label>
               <span class="icon icon-close text-danger" data-ng-click="removeDefaultSort(defaultSortObj)" role="button" tabindex="0"></span>
             </div>

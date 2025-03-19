@@ -1,19 +1,21 @@
+/* Copyright start
+  MIT License
+  Copyright (c) 2025 Fortinet Inc
+  Copyright end */
 'use strict';
 (function () {
     angular
         .module('cybersponse')
-        .controller('editC3Charts100Ctrl', editC3Charts100Ctrl);
+        .controller('editC3Charts110Ctrl', editC3Charts110Ctrl);
 
-    editC3Charts100Ctrl.$inject = ['$scope', '$uibModalInstance', 'config', 'appModulesService', 'Entity', 'SORT_ORDER', 'CommonUtils'];
+    editC3Charts110Ctrl.$inject = ['$scope', '$uibModalInstance', 'config', 'appModulesService', 'Entity', 'SORT_ORDER', 'CommonUtils'];
 
-    function editC3Charts100Ctrl($scope, $uibModalInstance, config, appModulesService, Entity, SORT_ORDER, CommonUtils) {
+    function editC3Charts110Ctrl($scope, $uibModalInstance, config, appModulesService, Entity, SORT_ORDER, CommonUtils) {
         $scope.config = config;
-        $scope.config.customFilters = $scope.config.customFilters || {'limit':1, 'sort': []};
-        if ($scope.config.customFilters.sort.length > 0) {
-          $scope.customSort = {field: $scope.config.customFilters.sort[0].field, direction: $scope.config.customFilters.sort[0].direction};
-        }
-        else {
-          $scope.customSort = {};
+        $scope.config.customFilters = $scope.config.customFilters || {'limit':1, 'sort': ['ASC']};
+        if ($scope.config.customFilters.sort.length > 0 && CommonUtils.isUndefined($scope.config.sortField)) {
+          $scope.config.sortField = $scope.config.customFilters.sort[0].field;
+          $scope.config.sortDirection =  $scope.config.customFilters.sort[0].direction || $scope.config.customFilters.sort[0];
         }
         appModulesService.load().then(function(modules) {
               $scope.modules = modules;
@@ -68,7 +70,15 @@
                 var uniqueValue = CommonUtils.generateUUID();
                 $scope.config['correlationValue'] = uniqueValue;
               }
-              $scope.config.customFilters.sort = [$scope.customSort];
+              let sortFilter = {
+                direction: $scope.config.sortDirection,
+                field: $scope.config.sortField
+              }
+              let field = $scope.moduleFields[$scope.config.customResource][$scope.config.sortField];
+              if(field.type === 'lookup' || field.type === 'picklist') {
+                sortFilter.field = $scope.config.sortField + '.uuid';
+              }
+              $scope.config.customFilters.sort = [sortFilter];
               $uibModalInstance.close($scope.config);
           } 
       }
