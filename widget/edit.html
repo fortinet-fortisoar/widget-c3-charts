@@ -41,7 +41,7 @@
       <!-- Query section to replace record id selection below -->
       <div class="form-group" data-ng-hide="!config.customResource && moduleFieldsArrays[config.customResource].length > 0" data-ng-class="{ 'has-error': editWidgetForm.customFilter.$invalid && editWidgetForm.customFilters.$touched }">
         <!-- Filters -->
-        <label for="customFilters" class="control-label">Record Selection Filter1</label>
+        <label for="customFilters" class="control-label">Record Selection Filter</label>
         <div data-cs-conditional data-ng-if="moduleFieldsArrays[config.customResource].length > 0" data-fields="moduleFields[config.customResource]" data-mode="'queryFilters'" data-ng-model="config.customFilters"
         data-parent-form="editWidgetForm" data-enable-expression="(page==='dashboard' || page==='reporting')" data-reset-field="config.customResource" data-show-uuid="true" data-form-name="'editWidgetForm'"></div>
         <div data-cs-messages="editWidgetForm.customFilters"></div>
