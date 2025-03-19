@@ -1,3 +1,3 @@
 ## What's New
 
-- Fixed issue render without displaying any data, and when the severity field is used.
+- Fixed an issue where rendering occurred without displaying any data, especially when a picklist or lookup field was selected.

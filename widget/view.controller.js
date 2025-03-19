@@ -34,13 +34,11 @@
                         }
                         if(moduleChartData) {
                             $scope.chart = c3.generate(moduleChartData);
-                        }else {
                             $scope.noData=false;
+                        }else {
+                            $scope.noData=true;
                         }
-                        $scope.processing=false;
-                        },
-                    0,
-                    false)
+                    },0,false);
                 }
             }).finally(function() {
                 $scope.processing= false;
