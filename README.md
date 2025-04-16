@@ -1,10 +1,10 @@
 # Release Information
 
-* **Version**: 1.1.0
-* **Certified**: No
-* **Publisher**: Fortinet
-* **Compatible Version**: 7.3.0 and later
-[Release Notes](./widget/release_notes.md)
+- **Version**: 1.1.0
+- **Certified**: No
+- **Publisher**: Fortinet
+- **Compatible Version**: 7.3.0 and later
+- [Release Notes](./widget/release_notes.md)
 
 # Overview
 
