@@ -4,7 +4,7 @@
 # Installation
 
 1. To install a solution pack, click **Content Hub** > **Discover**.
-2. From the list of solution pack that appears, search for and select **C3 Charts**.
+2. From the list of solution pack that appears, search for **C3 Charts**.
 3. Click the **C3 Charts** solution pack card.
 4. Click **Install** on the bottom to begin installation.
 
@@ -34,7 +34,7 @@ Provide the following details to customize the **C3 Charts Widget** to suit your
 | Record Selection Filter                | Specify a filter to find and pull the appropriate record for the chart data. For example, to configure this widget to show the most recent record in *Weekly Incident Remediations*, specify the filter `Name Equals Weekly Incident Remediations` fetches th                                                            |
 | Take First Record When Sorted On Field | In a case where the filter in the previous parameter results in multiple records being found, they will be sorted on the field specified here, and the first result will be used  as the chart data source. For example, to select the most recent record matching the filter, the Created On field could be selected, along with the "Descending" radio button. |
 
-Once configured, the **Edit Widget** interface should look similar to the following screenshot:
+Once configured, the **Edit Widget** interface should look similar to the following:
 
 ![Editing the C3 Charts Widget](./res/widget_configuration.png)
 
